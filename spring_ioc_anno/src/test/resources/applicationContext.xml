@@ -21,4 +21,5 @@
 <!--    </bean>-->
     <!--配置组件扫描-->
     <context:component-scan base-package="org.example"/>
+    <import resource="classpath:"/>
 </beans>
