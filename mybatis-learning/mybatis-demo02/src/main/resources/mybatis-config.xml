@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<!--核心配置文件以后可以用spring整合 不用过多关注-->
+<configuration>
+    <!--引入jdbc.properties 文件-->
+    <properties resource="jdbc.properties"/>
+    <typeAliases>
+        <!--设置某个类的别名-->
+        <typeAlias type="cn.tedu.mybatis.pojo.User" alias="User"/>
+        <!--以包为单位，将包下所有的类设置别名(类名),不区分大小写-->
+        <package name="cn.tedu.mybatis.pojo"/>
+    </typeAliases>
+
+    <!--配置多个连接数据库的环境-->
+    <environments default="development">
+
+        <environment id="development">
+            <!--事务管理方式
+            JDBC 当前环境中执行SQL时 使用JDBC中原生的事务管理方式
+                 事务的提交或回滚需要手动处理
+            MANAGED 被管理 通过Spring AOP中的声明式事务来管理MyBatis的事务
+            -->
+            <transactionManager type="JDBC"/>
+            <!-- 设置 数据源类型
+            POOLED  使用数据库连接池缓存数据连接
+            UNPOOLED  不使用数据库连接池
+            JNDI      使用上下文中的数据源
+            -->
+            <dataSource type="POOLED">
+                <!--设置连接数据库的驱动-->
+                <property name="driver" value="${jdbc.driver}"/>
+                <!--设置连接数据库的连接地址-->
+                <property name="url" value="${jdbc.url}"/>
+                <property name="username" value="${jdbc.username}"/>
+                <property name="password" value="${jdbc.password}"/>
+            </dataSource>
+        </environment>
+
+
+        <environment id="test">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/empdb?characterEncoding=utf8"/>
+                <property name="username" value="root"/>
+                <property name="password" value="root"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入映射文件 一一个mapper文件对于一张表-->
+    <mappers>
+        <!--引入 单个映射文件-->
+        <!--        <mapper resource="mappers/ParameterMapper.xml"/>-->
+        <!--
+        以包为单位引入所有映射文件
+        1.mapper接口所在包要和映射文件所在包一致
+        2.mapper接口要和映射文件的名字一致
+        -->
+        <package name="cn.tedu.mybatis.mappers"/>
+
+    </mappers>
+</configuration>

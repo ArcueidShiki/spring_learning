@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名-->
+<mapper namespace="cn.tedu.mybatis.mappers.ParameterMapper">
+    <!--int insertUser();-->
+    <insert id="insertUser">
+        insert into user values(null,'kama','1233','迦摩');
+    </insert>
+
+    <!--int deleteUser();-->
+    <delete id="deleteUser">
+        delete from user where id = 35;
+    </delete>
+
+    <!--void updateUser();-->
+    <update id="updateUser">
+        update user set name = '迦摩' where id = 33;
+    </update>
+
+    <!--User getUserById();
+        查询必须设置 resultType 和 resultMap
+        resultType : 设置默认映射关系 , 把查询出来的字段名 作为属性名为类型赋值
+        resultMap : 设置自定义映射关系 字段名和属性名不一致时使用
+    -->
+    <select id="getUserById" resultType="cn.tedu.mybatis.pojo.User">
+        select * from user where id = 32;
+    </select>
+
+    <!--List<User> getAllUser();-->
+    <select id="getAllUser" resultType="cn.tedu.mybatis.pojo.User">
+        select * from user;
+    </select>
+</mapper>
