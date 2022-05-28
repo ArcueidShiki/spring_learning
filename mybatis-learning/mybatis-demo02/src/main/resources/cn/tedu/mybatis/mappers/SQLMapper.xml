@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<mapper namespace="cn.tedu.mybatis.mappers.SQLMapper">
+<!--    List<User> getUserByLike(@Param("username") String username);-->
+    <select id="getUserByLike" resultType="user">
+        <!--select * from user where name like '%${username}%'-->
+        <!--select * from user where name like concat('%',#{username},'%')-->
+        select * from user where name like "%"#{username}"%"
+    </select>
+    
+    <!--int deleteMore(@Param("ids") String ids);-->
+    <delete id="deleteMore">
+        delete from user where id in (${ids})
+    </delete>
+
+    <!--List<User> getUserByTableName(@Param("tableName") String tableName);-->
+    <select id="getUserByTableName" resultType="User">
+        select * from ${tableName}
+    </select>
+
+    <!--void insertUser(User user);
+    useGeneratedKeys:表示当前标签中的sql 使用了自增的主键
+    keyProperty:将自增的主键值赋值给传输到映射文件中参数的某个属性
+    -->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id">
+        insert into user values(null,#{name},#{password},#{nickname})
+    </insert>
+</mapper>
