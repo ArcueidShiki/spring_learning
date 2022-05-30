@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<mapper namespace="cn.tedu.mybatis.mappers.DynamicSQLMapper">
+<!--    List<Emp> getEmpByConditionOne(Emp emp);-->
+    <select id="getEmpByConditionOne" resultType="Emp">
+        select * from emp where 1=1
+        <if test="name != null and name != '' ">
+            and name = #{name}
+        </if>
+        <if test="job != null and job !=''">
+           and job = #{job}
+        </if>
+    </select>
+
+    <!--    List<Emp> getEmpByConditionTwo(Emp emp);-->
+    <select id="getEmpByConditionTwo" resultType="Emp">
+        select * from emp where 1=1
+        <if test="name != null and name != '' ">
+            and name = #{name}
+        </if>
+        <if test="job != null and job !=''">
+            and job = #{job}
+        </if>
+    </select>
+</mapper>

@@ -7,9 +7,16 @@
 <configuration>
     <!--引入jdbc.properties 文件-->
     <properties resource="jdbc.properties"/>
+    <!--设置mybatis全局配置-->
+    <settings>
+        <!--将下划线映射为驼峰-->
+<!--        <setting name="mapUnderscoreToCamelCase" value=""/>-->
+        <!--开启延迟加载-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+    </settings>
     <typeAliases>
         <!--设置某个类的别名-->
-        <typeAlias type="cn.tedu.mybatis.pojo.User" alias="User"/>
+<!--        <typeAlias type="cn.tedu.mybatis.pojo.Emp" alias="Emp"/>-->
         <!--以包为单位，将包下所有的类设置别名(类名),不区分大小写-->
         <package name="cn.tedu.mybatis.pojo"/>
     </typeAliases>

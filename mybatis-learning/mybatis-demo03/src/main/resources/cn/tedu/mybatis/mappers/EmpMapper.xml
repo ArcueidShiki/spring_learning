@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<mapper namespace="cn.tedu.mybatis.mappers.EmpMapper">
+<!--    List<Emp> getAllEmp();-->
+    <select id="getAllEmp2222222不会执行" resultType="Emp">
+        select * from emp;
+    </select>
+    <!--自定义映射关系-->
+    <resultMap id="empResultMap" type="Emp">
+<!--        <id property="id" column="id"></id> association:多对一 collection 一对多-->
+        <result property="deptId" column="dept_id"></result>
+    </resultMap>
+
+    <select id="getAllEmp" resultMap="empResultMap">
+        select * from emp;
+    </select>
+
+<!--    Emp getEmpAndDept();-->
+
+    <resultMap id="EmpAndDeptResultMapOne" type="Emp">
+        <id property="id" column="id"></id>
+
+        <result property="deptId" column="dept_id"></result>
+        <result property="dept.id" column="dept_id"></result>
+        <result property="dept.name" column="dept.name"></result>
+        <result property="dept.deptName" column="loc"></result>
+    </resultMap>
+    <select id="getEmpAndDept" resultMap="EmpAndDeptResultMapOne">
+        select * from emp left join dept on emp.dept_id = dept.id where emp.id = #{eid}
+    </select>
+<!--    Emp getEmpAndDeptByStepOne(Integer eid);-->
+    
+    <resultMap id="empAndDeptByStepResultMap" type="Emp">
+        <id property="id" column="id"></id>
+
+        <result property="deptId" column="dept_id"></result>
+        <result property="dept.id" column="dept_id"></result>
+        <result property="dept.name" column="dept.name"></result>
+        <result property="dept.deptName" column="loc"></result>
+        <association property="dept"
+                     select="cn.tedu.mybatis.mappers.DeptMapper.getEmpAndDeptStepTwo"
+                     column="dept_id"
+                     fetchType="eager"
+        >
+        </association>
+    </resultMap>
+    
+    <select id="getEmpAndDeptByStepOne" resultMap="empAndDeptByStepResultMap">
+        select * from emp where id = #{eid}
+    </select>
+
+    <!--    List<Emp> getDeptAndEmpByStepTwo(@Param("did") Integer did);-->
+    <resultMap id="EmpResultMap" type="Emp">
+        <result property="deptId" column="dept_id"></result>
+    </resultMap>
+
+    <select id="getDeptAndEmpByStepTwo" resultMap="EmpResultMap">
+        select id,name,job,dept_id from emp where dept_id = #{did}
+    </select>
+</mapper>

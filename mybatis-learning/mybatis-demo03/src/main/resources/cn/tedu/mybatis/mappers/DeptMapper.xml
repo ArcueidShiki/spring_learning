@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<mapper namespace="cn.tedu.mybatis.mappers.DeptMapper">
+<!--    Dept getEmpAndDeptStepTwo(@Param("did") Integer did);-->
+<resultMap id="DeptResultMap" type="Dept">
+    <result property="deptName" column="loc"></result>
+</resultMap>
+    <select id="getEmpAndDeptStepTwo" resultMap="DeptResultMap">
+        select * from dept where id = #{did}
+    </select>
+
+<!--    Dept getDeptAndEmp(@Param("did") Integer did);-->
+
+    <resultMap id="deptAndEmpResultMap" type="Dept">
+        <id property="id" column="id"></id>
+        <result property="deptName" column="loc"></result>
+        <result property="name" column="name"></result>
+        <collection property="emps" ofType="Emp"
+        select="cn.tedu.mybatis.mappers.EmpMapper.getDeptAndEmpByStepTwo"
+        column="id">
+        </collection>
+    </resultMap>
+    <select id="getDeptAndEmp" resultMap="deptAndEmpResultMap">
+        select * from dept left join emp on emp.dept_id = dept.id where emp.dept_id = #{did}
+    </select>
+
+    <select id="getDeptAndEmpByStepOne" resultMap="deptAndEmpResultMap">
+        select * from dept where id = #{did}
+    </select>
+</mapper>
