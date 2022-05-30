@@ -5,6 +5,11 @@
 
 <!--核心配置文件以后可以用spring整合 不用过多关注-->
 <configuration>
+    <!--配置顺序:
+    properties,settings,typeAlias,typeHandlers
+    objectFactory,objectWrapperFactory,reflectFactory
+    plugins,environments,databaseIdProvider,mappers
+    -->
     <!--引入jdbc.properties 文件-->
     <properties resource="jdbc.properties"/>
     <typeAliases>
@@ -13,6 +18,10 @@
         <package name="cn.tedu.mybatis.pojo"/>
     </typeAliases>
 
+    <plugins>
+        <!--设置分页插件-->
+        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>
+    </plugins>
     <!--配置多个连接数据库的环境-->
     <environments default="development">
 
@@ -61,4 +70,5 @@
         <package name="cn.tedu.mybatis.mappers"/>
 
     </mappers>
+
 </configuration>
