@@ -17,12 +17,59 @@
 
     <!--    List<Emp> getEmpByConditionTwo(Emp emp);-->
     <select id="getEmpByConditionTwo" resultType="Emp">
-        select * from emp where 1=1
-        <if test="name != null and name != '' ">
-            and name = #{name}
-        </if>
-        <if test="job != null and job !=''">
-            and job = #{job}
-        </if>
+        select * from emp
+        <where>
+          <!--where 标签可以把 前面的and or 去掉，后面的and or 不行-->
+            <if test="name != null and name != '' ">
+                 name = #{name}
+            </if>
+            <if test="job != null and job !=''">
+                 job = #{job}
+            </if>
+        </where>
+
     </select>
+    <!--where 标签可以把 前面的and or 去掉，后面的and or 不行-->
+    <select id="getEmpByConditionTrim" resultType="Emp">
+        select * from emp
+        <trim prefix="where"  suffixOverrides="and|or"></trim>
+            <if test="job != null and job !=''">
+                job = #{job} or
+            </if>
+
+    </select>
+<!--    List<Emp> getEmpByChoose(Emp emp);-->
+    <sql id="empColumns">id,name,job,sal</sql>
+    <select id="getEmpByChoose" resultType="Emp">
+        select <include refid="empColumns"></include> from emp
+        <where>
+            <choose>
+                <when test="name != null and name != ''">
+                    name = #{name}
+                </when>
+                <when test="job != null and job != ''">
+                    job = #{job}
+                </when>
+                <otherwise>
+                    dept_id = 1
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+<!--    int deleteMoreByArray(Integer[] eids);-->
+    <delete id="deleteMoreByArray">
+        delete from emp where id in
+        <foreach collection="eids" item="id" separator="," open="(" close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+<!--    int insertMoreByList(List<Emp> emps);-->
+    <insert id="insertMoreByList" >
+        insert into emp(id,name,job) values
+        <foreach collection="emps" item="emp" separator=",">
+            (null,#{emp.name},#{emp.job})
+        </foreach>
+    </insert>
 </mapper>

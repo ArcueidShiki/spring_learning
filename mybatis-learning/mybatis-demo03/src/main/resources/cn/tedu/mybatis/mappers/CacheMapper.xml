@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<mapper namespace="cn.tedu.mybatis.mappers.CacheMapper">
+    <!--开启二级缓存
+        eviction 缓存回收策略 不能一直保存在内存中
+        flushInterval 刷新间隔。缓存仅仅调用增删改语句时刷新
+        size 引用数目
+        readOnly 缓存对象不可操作
+        type : 设置二级缓存的类型，不设置默认使用mybatis的缓存
+    -->
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+<!--    Emp getEmpById(@Param("eid") Integer id);-->
+    <sql id="empColumns">id,name,manager,sal,dept_id</sql>
+    <select id="getEmpById" resultType="Emp">
+        select <include refid="empColumns"></include> from emp
+        <where>
+            <if test="eid != null and eid != ''">
+                id = #{eid}
+            </if>
+        </where>
+    </select>
+</mapper>

@@ -1,8 +1,9 @@
 package cn.tedu.mybatis.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Emp {
+public class Emp implements Serializable {
     private Integer id;
     private String name;
     private String job;
@@ -12,6 +13,15 @@ public class Emp {
     private Double comm;
     private Integer deptId;
     private Dept dept;
+
+    public Emp() {
+    }
+
+    public Emp(Integer id, String name, String job) {
+        this.id = id;
+        this.name = name;
+        this.job = job;
+    }
 
     public Dept getDept() {
         return dept;
