@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<!-- 根节点必须是mapper -->
+<!-- 根节点的namespace属性用于配置此XML对应哪个接口 -->
+<mapper namespace="cn.tedu.mybatis.mapper.AdminMapper">
+    <!-- 根据需要执行的SQL语句的种类选择需要配置的节点名称-->
+    <!-- 配置SQL的节点的id属性取值为抽象方法名称 -->
+    <!-- 在节点内部配置SQL语句 -->
+    <!-- SQL语句中的参数值使用 #{} 格式的占位符表示 -->
+
+    <!--开启时，自动给Admin类赋值id属性-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="true">
+        insert into ams_admin (
+            username, password, nickname, avatar,
+            phone, email, description, is_enable,
+            last_login_ip, login_count, gmt_last_login, gmt_create,
+            gmt_modified
+        ) values (
+                     #{username}, #{password}, #{nickname}, #{avatar},
+                     #{phone}, #{email}, #{description}, #{isEnable},
+                     #{lastLoginIp}, #{loginCount}, #{gmtLastLogin}, #{gmtCreate},#{gmtModified}
+                 )
+    </insert>
+
+    <delete id="deleteById">
+        delete from ams_admin where id=#{id}
+    </delete>
+
+    <update id="updatePasswordById">
+        update ams_admin set password=#{password} where id=#{id}
+    </update>
+</mapper>
