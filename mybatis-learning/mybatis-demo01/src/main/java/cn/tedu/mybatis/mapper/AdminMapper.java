@@ -1,7 +1,10 @@
 package cn.tedu.mybatis.mapper;
 
 import cn.tedu.mybatis.pojo.Admin;
+import cn.tedu.mybatis.vo.AdminDetailsVO;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface AdminMapper {
 
@@ -11,4 +14,20 @@ public interface AdminMapper {
 
     int updatePasswordById(@Param("id") Long id,
                            @Param("password") String password);
+
+    //查询 单条用find get, 多条 list
+    int count();
+
+    Admin getById(Long id);
+
+    List<Admin> list();
+
+    int deleteByIds(Long...ids);
+
+//    int deleteByIds(Long[] ids);
+    int deleteByIds(List<Long> ids);
+
+    int deleteByIds(long[] longs);
+
+    AdminDetailsVO getDetailsById(Long id);
 }

@@ -83,4 +83,40 @@ public class MyBatisTest {
 
     }
 
+    @Test
+    public void testCount(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+        AdminMapper adminMapper = ac.getBean(AdminMapper.class);
+        System.out.println(adminMapper.count());
+        ac.close();
+    }
+
+    @Test
+    public void testGetById(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+        AdminMapper adminMapper = ac.getBean(AdminMapper.class);
+        System.out.println(adminMapper.getById(1L));
+        ac.close();
+    }
+
+    @Test
+    public void testList(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+        AdminMapper adminMapper = ac.getBean(AdminMapper.class);
+        adminMapper.list().forEach(System.out::println);
+    }
+
+    @Test
+    public void testDeleteByIds(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+        AdminMapper adminMapper = ac.getBean(AdminMapper.class);
+        System.out.println(adminMapper.deleteByIds(new long[]{1, 2, 3}));
+    }
+
+    @Test
+    public void testGetDetailsById(){
+        AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(SpringConfig.class);
+        AdminMapper adminMapper = ac.getBean(AdminMapper.class);
+        System.out.println(adminMapper.getDetailsById(2L));
+    }
 }
