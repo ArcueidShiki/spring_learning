@@ -2,10 +2,11 @@ package cn.tedu.mybatis.mapper;
 
 import cn.tedu.mybatis.pojo.Admin;
 import cn.tedu.mybatis.vo.AdminDetailsVO;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface AdminMapper {
 
     int insert(Admin admin);

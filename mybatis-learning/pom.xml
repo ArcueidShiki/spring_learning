@@ -6,18 +6,23 @@
     <packaging>pom</packaging>  <!--打包方式-->
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>8</source>
-                    <target>8</target>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <configuration>-->
+<!--                    <source>8</source>-->
+<!--                    <target>8</target>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+
         </plugins>
     </build>
     <modules>
         <module>mybatis-demo02</module>
+        <module>mybatis-demo03</module>
+        <module>mybatis-generator</module>
+        <module>mybatis-plus</module>
+        <module>mybatis-demo01</module>
     </modules>
     <groupId>org.example</groupId>
     <artifactId>mybatis-learning</artifactId>
@@ -52,9 +57,10 @@
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>druid</artifactId>
-            <version>1.1.21</version>
+            <version>1.1.12</version>
         </dependency>
     </dependencies>
+
 
 
 

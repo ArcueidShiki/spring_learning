@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
+<!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.EmpMapper-->
 <mapper namespace="cn.tedu.mybatis.mappers.SelectMapper">
 <!--    User getUserById(@Param("id") Integer id);-->
     <!--resultType 类型别名 不区分大小写-->

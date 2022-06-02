@@ -20,7 +20,7 @@
         resultType : 设置默认映射关系 , 把查询出来的字段名 作为属性名为类型赋值
         resultMap : 设置自定义映射关系 字段名和属性名不一致时使用
     -->
-    <select id="getUserById" resultType="cn.tedu.mybatis.pojo.User">
+    <select id="getUserById" resultType="cn.tedu.mybatis.pojo.Emp">
         select * from user where id = 32;
     </select>
 
