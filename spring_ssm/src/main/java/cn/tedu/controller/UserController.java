@@ -14,24 +14,29 @@ public class UserController {
     private UserService userService;
 
     @PostMapping
-    public Integer save(@RequestBody User user) {
-        return userService.save(user);
+    public Result save(@RequestBody User user) {
+        int rows = userService.save(user);
+        return new Result(rows == 1?Code.SAVE_OK:Code.SAVE_ERR,rows);
     }
 
     @PatchMapping
-    public Integer update(@RequestBody User user) {
-        return userService.update(user);
+    public Result update(@RequestBody User user) {
+        int rows = userService.update(user);
+        return new Result(rows == 1?Code.UPDATE_OK:Code.UPDATE_ERR,rows);
     }
     @DeleteMapping("/{id}")
-    public Integer delete(@PathVariable Integer id) {
-        return userService.delete(id);
+    public Result delete(@PathVariable Integer id) {
+        int rows = userService.delete(id);
+        return new Result(rows == 1?Code.DELETE_OK:Code.DELETE_ERR,rows);
     }
     @GetMapping("/{id}")
-    public User getById(@PathVariable Integer id) {
-        return userService.getById(id);
+    public Result getById(@PathVariable Integer id) {
+        User user = userService.getById(id);
+        return new Result(user == null ? Code.GET_OK:Code.GET_ERR,user);
     }
     @GetMapping
-    public List<User> getAll() {
-        return userService.getAll();
+    public Result getAll() {
+        List<User> userList = userService.getAll();
+        return new Result(userList == null?Code.GET_OK:Code.GET_ERR,userList);
     }
 }

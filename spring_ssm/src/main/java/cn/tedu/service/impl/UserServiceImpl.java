@@ -12,18 +12,18 @@ public class UserServiceImpl implements UserService {
     @Autowired
     private UserDao userDao;
     @Override
-    public Integer save(User user) {
-        return userDao.save(user);
+    public boolean save(User user) {
+        return userDao.save(user) > 0;
     }
 
     @Override
-    public Integer update(User user) {
-        return userDao.update(user);
+    public boolean update(User user) {
+        return userDao.update(user) > 0;
     }
 
     @Override
-    public Integer delete(Integer id) {
-        return userDao.delete(id);
+    public boolean delete(Integer id) {
+        return userDao.delete(id) > 0;
     }
 
     @Override

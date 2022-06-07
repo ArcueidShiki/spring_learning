@@ -11,21 +11,21 @@ public interface UserService {
      * @param user
      * @return
      */
-    Integer save(User user);
+    boolean save(User user);
 
     /**
      * 修改
      * @param user
      * @return
      */
-    Integer update(User user);
+    boolean update(User user);
 
     /**
      * 按id删除
      * @param id
      * @return
      */
-    Integer delete(Integer id);
+    boolean delete(Integer id);
 
     /**
      * 按id查询
