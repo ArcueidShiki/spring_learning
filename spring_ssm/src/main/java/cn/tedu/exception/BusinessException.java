@@ -1,6 +1,6 @@
 package cn.tedu.exception;
 
-public class SystemException  extends RuntimeException{
+public class BusinessException extends RuntimeException{
 
     private Integer code;
 
@@ -12,15 +12,11 @@ public class SystemException  extends RuntimeException{
         this.code = code;
     }
 
-    public SystemException(Integer code, String message) {
+    public BusinessException(String message) {
         super(message);
-        this.code = code;
     }
 
-    public SystemException(Integer code, String message, Throwable cause) {
+    public BusinessException(String message, Throwable cause) {
         super(message, cause);
-        this.code = code;
     }
-
-
 }

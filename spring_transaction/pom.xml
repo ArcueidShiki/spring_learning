@@ -7,7 +7,12 @@
     <groupId>org.example</groupId>
     <artifactId>spring_transaction</artifactId>
     <version>1.0-SNAPSHOT</version>
-
+    <parent>
+        <groupId>org.example</groupId>
+        <artifactId>spring_parent</artifactId>
+        <version>1.0-SNAPSHOT</version>
+        <relativePath>../spring_parent/pom.xml</relativePath>
+    </parent>
     <dependencies>
         <dependency>
             <groupId>org.springframework</groupId>

@@ -17,7 +17,7 @@ class SpringBootQuickstartApplicationTests {
 
     @Test
     void contextLoads() {
-        userService.save();
+//        userService.save();
     }
 
     @Test

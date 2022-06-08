@@ -15,19 +15,19 @@ public class UserController {
 
     @PostMapping
     public Result save(@RequestBody User user) {
-        int rows = userService.save(user);
-        return new Result(rows == 1?Code.SAVE_OK:Code.SAVE_ERR,rows);
+        boolean res = userService.save(user);
+        return new Result(res?Code.SAVE_OK:Code.SAVE_ERR,res);
     }
 
     @PatchMapping
     public Result update(@RequestBody User user) {
-        int rows = userService.update(user);
-        return new Result(rows == 1?Code.UPDATE_OK:Code.UPDATE_ERR,rows);
+        boolean res = userService.update(user);
+        return new Result(res?Code.UPDATE_OK:Code.UPDATE_ERR,res);
     }
     @DeleteMapping("/{id}")
     public Result delete(@PathVariable Integer id) {
-        int rows = userService.delete(id);
-        return new Result(rows == 1?Code.DELETE_OK:Code.DELETE_ERR,rows);
+        boolean res = userService.delete(id);
+        return new Result(res?Code.DELETE_OK:Code.DELETE_ERR,res);
     }
     @GetMapping("/{id}")
     public Result getById(@PathVariable Integer id) {
