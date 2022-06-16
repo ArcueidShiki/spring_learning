@@ -19,7 +19,7 @@ import java.util.List;
 public class PageHelperTest {
 
     @Test
-    public void testPageHelper(){
+    public void testPageHelper() {
         try {
             InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
@@ -31,7 +31,7 @@ public class PageHelperTest {
             PageHelper.startPage(9, 5);
             List<Emp> emps = mapper.selectByExample(null);
             // 导航分页展示的个数
-            PageInfo<Emp> page = new PageInfo<>(emps,5);
+            PageInfo<Emp> page = new PageInfo<>(emps, 5);
             System.out.println(page);// 可以输出关于分页的所有相关信息包括多少导航分页
             emps.forEach(System.out::println);
         } catch (IOException e) {

@@ -6,10 +6,10 @@ import lombok.Data;
 @Data //但不包含构造方法的注解
 //@TableName("user")
 public class User {
-//    @TableId(type = IdType.ASSIGN_ID) //修改id自增策略  在yml文件配置
+    //    @TableId(type = IdType.ASSIGN_ID) //修改id自增策略  在yml文件配置
     private Long id;
     private String name;
-    @TableField(value = "password",select = false)
+    @TableField(value = "password", select = false)
     private String password;
     private String nickname;
     @TableField(exist = false)

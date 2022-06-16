@@ -3,7 +3,7 @@ package cn.tedu.mybatis.pojo;
 import java.time.LocalDateTime;
 
 public class Permission {
-    private Long id ;//bigint unsigned auto_increment,
+    private Long id;//bigint unsigned auto_increment,
     private String name;// varchar(50) default null comment '名称',
     private String value;// varchar(255) default null comment '值',
     private String description;// varchar(255) default null comment '描述',

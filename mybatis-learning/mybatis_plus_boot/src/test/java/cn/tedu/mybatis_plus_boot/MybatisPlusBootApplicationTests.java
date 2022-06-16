@@ -26,7 +26,7 @@ class MybatisPlusBootApplicationTests {
     }
 
     @Test
-    void testUpdateOne(){
+    void testUpdateOne() {
         User user = new User();
         user.setId(1L);
         user.setName("爱尔奎特");
@@ -34,21 +34,21 @@ class MybatisPlusBootApplicationTests {
     }
 
     @Test
-    void testGetByPage(){
+    void testGetByPage() {
         //需要开启MP分页拦截器
-        IPage page = new Page(2,5);
-        userDao.selectPage(page,null);
-        System.out.println("当前第几页:"+page.getCurrent());
-        System.out.println("每页多少条:"+page.getSize());
-        System.out.println("一共多少页:"+page.getPages());
-        System.out.println("一共多少条:"+page.getTotal());
+        IPage page = new Page(2, 5);
+        userDao.selectPage(page, null);
+        System.out.println("当前第几页:" + page.getCurrent());
+        System.out.println("每页多少条:" + page.getSize());
+        System.out.println("一共多少页:" + page.getPages());
+        System.out.println("一共多少条:" + page.getTotal());
         System.out.println("页面数据:");
         page.getRecords().forEach(System.out::println);
     }
 
 
     @Test
-    void testGetByConditions(){
+    void testGetByConditions() {
         // 设置一 按条件查询
 //        QueryWrapper wrapper = new QueryWrapper();
 //        wrapper.lt("id",18); // id 小于18
@@ -74,14 +74,14 @@ class MybatisPlusBootApplicationTests {
 
         LambdaQueryWrapper<User> wrapper = new LambdaQueryWrapper<User>();
         // 等同于
-        wrapper.eq(User::getName,"青子").eq(User::getPassword,"123");
+        wrapper.eq(User::getName, "青子").eq(User::getPassword, "123");
         System.out.println(userDao.selectOne(wrapper));
         //范围查询 lt gt le ge eq between
     }
 
 
     @Test
-    void testSave(){
+    void testSave() {
         User user = new User();
         user.setName("llllll");
         user.setPassword("123123");
@@ -91,7 +91,7 @@ class MybatisPlusBootApplicationTests {
 
     // 同时删除多条（ids）购物车 同时删除
     @Test
-    void testDeleteBatch(){
+    void testDeleteBatch() {
         List<Long> list = new ArrayList<>();
         list.add(1534548961101815809L);
         list.add(1534548920790310913L);
@@ -101,20 +101,22 @@ class MybatisPlusBootApplicationTests {
 
     // 根据id查多条 显示购物车
     @Test
-    void testSelectBatch(){
+    void testSelectBatch() {
         List<Long> list = new ArrayList<>();
         list.add(15L);
         list.add(36L);
         list.add(42L);
         userDao.selectBatchIds(list);
     }
+
     @Test
-    void testDeleteLogic(){
+    void testDeleteLogic() {
         userDao.deleteById(3);
     }
 
-    @Test // 测试乐观锁 version
-    void testUpdateVersion(){
+    @Test
+        // 测试乐观锁 version
+    void testUpdateVersion() {
         User user = userDao.selectById(11L);
         user.setName("jiamo");
         userDao.updateById(user);

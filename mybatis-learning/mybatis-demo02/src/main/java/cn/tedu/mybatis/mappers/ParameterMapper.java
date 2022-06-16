@@ -12,9 +12,10 @@ public interface ParameterMapper {
 
     User GetUserByUsername(String username);
 
-    User checkLogin(String username,String password);
+    User checkLogin(String username, String password);
 
-    User checkLoginByMap(Map<String,Object> map);
+    User checkLoginByMap(Map<String, Object> map);
+
     // 根据属性赋值。什么是属性:有getter和setter
     int insertUser(User user);
 

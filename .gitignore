@@ -1,2 +1,8 @@
 /lib/
 /spring_ioc_anno/target/
+/spring-mybatis/target/
+/spring_aop/target/
+/spring_transaction/target/
+/spring_transaction/spring_transaction.iml
+/springmvc/target/
+/spring-data-redis-demo/target/

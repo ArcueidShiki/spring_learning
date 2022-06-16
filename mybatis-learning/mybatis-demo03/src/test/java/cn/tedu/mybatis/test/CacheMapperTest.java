@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 public class CacheMapperTest {
     @Test
-    public void testCacheMapper(){
+    public void testCacheMapper() {
         SqlSession sqlSession1 = SqlSessionUtils.getSqlSession();
         CacheMapper mapper1 = sqlSession1.getMapper(CacheMapper.class);
         System.out.println(mapper1.getEmpById(1));
@@ -37,7 +37,7 @@ public class CacheMapperTest {
     }
 
     @Test
-    public void testLevelTwoCache(){
+    public void testLevelTwoCache() {
         try {
             InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);

@@ -16,7 +16,7 @@ import java.util.List;
 public class MBFTest {
 
     @Test
-    public void testMBG(){
+    public void testMBG() {
         try {
             InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
@@ -31,7 +31,7 @@ public class MBFTest {
             // 直接修改。不修改的字段会被全部置为null
 //            mapper.updateByPrimaryKey(new Emp(36,"Arcueid"));
             // 选择修改，修改的字段不会受影响
-            mapper.updateByPrimaryKeySelective(new Emp(36,"Arcueid","吸血鬼"));
+            mapper.updateByPrimaryKeySelective(new Emp(36, "Arcueid", "吸血鬼"));
         } catch (IOException e) {
             e.printStackTrace();
         }

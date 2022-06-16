@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="web" url="file://$PROJECT_DIR$/spring_parent/src/main/resources" />
+    <file type="web" url="file://$PROJECT_DIR$/spring_ssm" />
+    <file type="web" url="file://$PROJECT_DIR$/springmvc" />
+  </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/spring_ioc_anno/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-mybatis/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_aop/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_transaction/pom.xml" />
+        <option value="$PROJECT_DIR$/springmvc/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_ssm/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_parent/pom.xml" />
+        <option value="$PROJECT_DIR$/spring_boot_quickstart/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-learning/mybatis_plus_boot/pom.xml" />
+        <option value="$PROJECT_DIR$/mybatis-learning/mybatis_plus_generator/pom.xml" />
+        <option value="$PROJECT_DIR$/jedis-learning/pom.xml" />
+        <option value="$PROJECT_DIR$/spring-data-redis-demo/pom.xml" />
       </list>
     </option>
   </component>

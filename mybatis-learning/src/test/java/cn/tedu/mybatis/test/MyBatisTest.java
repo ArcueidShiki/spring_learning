@@ -15,14 +15,14 @@ import java.io.InputStream;
 public class MyBatisTest {
 
     @Test
-    public  void testMyBatis() throws IOException {
+    public void testMyBatis() throws IOException {
         // 加载核心配置文件
         InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
         SqlSessionFactoryBuilder sqlSessionFactoryBuilder = new SqlSessionFactoryBuilder();
 
         SqlSessionFactory sqlSessionFactory = sqlSessionFactoryBuilder.build(is);
 
-        SqlSession sqlSession  = sqlSessionFactory.openSession(true);
+        SqlSession sqlSession = sqlSessionFactory.openSession(true);
 
         UserMapper mapper = sqlSession.getMapper(UserMapper.class);
 //        int result = mapper.insertUser();

@@ -14,15 +14,15 @@
     <!--开启时，自动给Admin类赋值id属性-->
     <insert id="insert" useGeneratedKeys="true" keyProperty="true">
         insert into ams_admin (
-            username, password, nickname, avatar,
-            phone, email, description, is_enable,
-            last_login_ip, login_count, gmt_last_login, gmt_create,
-            gmt_modified
+        username, password, nickname, avatar,
+        phone, email, description, is_enable,
+        last_login_ip, login_count, gmt_last_login, gmt_create,
+        gmt_modified
         ) values (
-                     #{username}, #{password}, #{nickname}, #{avatar},
-                     #{phone}, #{email}, #{description}, #{isEnable},
-                     #{lastLoginIp}, #{loginCount}, #{gmtLastLogin}, #{gmtCreate},#{gmtModified}
-                 )
+        #{username}, #{password}, #{nickname}, #{avatar},
+        #{phone}, #{email}, #{description}, #{isEnable},
+        #{lastLoginIp}, #{loginCount}, #{gmtLastLogin}, #{gmtCreate},#{gmtModified}
+        )
     </insert>
 
     <delete id="deleteById">
@@ -37,13 +37,13 @@
         select count(*) from ams_admin;
     </select>
 
-<!--    <select id="getById" resultType="cn.tedu.mybatis.pojo.Admin">-->
-<!--        select * from ams_admin where id=#{id}-->
-<!--    </select>-->
+    <!--    <select id="getById" resultType="cn.tedu.mybatis.pojo.Admin">-->
+    <!--        select * from ams_admin where id=#{id}-->
+    <!--    </select>-->
 
-<!--    <select id="getById" resultMap="BaseResultMap">-->
-<!--        select * from ams_admin where id=#{id}-->
-<!--    </select>-->
+    <!--    <select id="getById" resultMap="BaseResultMap">-->
+    <!--        select * from ams_admin where id=#{id}-->
+    <!--    </select>-->
     <!-- resultMap节点的作用是：指导Mybatis如何将结果集中的数据封装到返回的对象中 -->
     <!-- id属性：自定义名称 -->
     <!-- type属性：将结果集封装到哪种类型的对象中 -->
@@ -52,12 +52,12 @@
         <!-- 在单表查询中，名称本来就一致的是不需要配置的 -->
         <!-- column属性：列名 -->
         <!-- property属性：属性名 -->
-        <result column="is_enable" property="isEnable" />
-        <result column="last_login_ip" property="lastLoginIp" />
-        <result column="login_count" property="loginCount" />
-        <result column="gmt_last_login" property="gmtLastLogin" />
-        <result column="gmt_create" property="gmtCreate" />
-        <result column="gmt_modified" property="gmtModified" />
+        <result column="is_enable" property="isEnable"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="login_count" property="loginCount"/>
+        <result column="gmt_last_login" property="gmtLastLogin"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
     </resultMap>
 
     <select id="list" resultMap="BaseResultMap">
@@ -66,10 +66,10 @@
 
     <delete id="deleteByIds">
         delete from ams_admin where id in (
-            <foreach collection="array" item="id" separator=",">
-                #{id}
-            </foreach>
-            )
+        <foreach collection="array" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
     </delete>
 
     <sql id="SelectedFields">
@@ -84,30 +84,29 @@
     </select>
 
 
-
     <resultMap id="DetailsResultMap" type="cn.tedu.mybatis.vo.AdminDetailsVO">
         <!-- 在1对多、多对多的查询中，即使名称匹配的结果，也必须显式的配置 -->
         <!-- 主键字段的结果必须使用id节点进行配置，配置方式与result节点完全相同 -->
-        <id column="id" property="id" />
-        <result column="username" property="username" />
-        <result column="password" property="password" />
-        <result column="nickname" property="nickname" />
-        <result column="avatar" property="avatar" />
-        <result column="phone" property="phone" />
-        <result column="email" property="email" />
-        <result column="description" property="description" />
-        <result column="is_enable" property="isEnable" />
-        <result column="last_login_ip" property="lastLoginIp" />
-        <result column="login_count" property="loginCount" />
-        <result column="gmt_last_login" property="gmtLastLogin" />
-        <result column="gmt_create" property="gmtCreate" />
-        <result column="gmt_modified" property="gmtModified" />
+        <id column="id" property="id"/>
+        <result column="username" property="username"/>
+        <result column="password" property="password"/>
+        <result column="nickname" property="nickname"/>
+        <result column="avatar" property="avatar"/>
+        <result column="phone" property="phone"/>
+        <result column="email" property="email"/>
+        <result column="description" property="description"/>
+        <result column="is_enable" property="isEnable"/>
+        <result column="last_login_ip" property="lastLoginIp"/>
+        <result column="login_count" property="loginCount"/>
+        <result column="gmt_last_login" property="gmtLastLogin"/>
+        <result column="gmt_create" property="gmtCreate"/>
+        <result column="gmt_modified" property="gmtModified"/>
         <!-- 需要使用collection节点配置1对多中“多”的数据 -->
         <collection property="roles" ofType="cn.tedu.mybatis.pojo.Role">
-            <id column="role_id" property="id" />
-            <result column="role_name" property="name" />
+            <id column="role_id" property="id"/>
+            <result column="role_name" property="name"/>
             <result column="role_description" property="description"/>
-            <result column="role_sort" property="sort" />
+            <result column="role_sort" property="sort"/>
             <result column="role_gmt_create" property="gmtCreate"/>
             <result column="role_gmt_modified" property="gmtModified"/>
         </collection>
@@ -166,10 +165,10 @@
         select
         <include refid="DetailsQueryFields"/>
         from ams_admin
-            left join ams_admin_role on ams_admin.id=ams_admin_role.admin_id
-            left join ams_role on ams_admin_role.role_id=ams_role.id
-            left join ams_role_permission on ams_role_permission.role_id=ams_role.id
-            left join ams_permission on ams_permission.id=ams_role_permission.permission_id
+        left join ams_admin_role on ams_admin.id=ams_admin_role.admin_id
+        left join ams_role on ams_admin_role.role_id=ams_role.id
+        left join ams_role_permission on ams_role_permission.role_id=ams_role.id
+        left join ams_permission on ams_permission.id=ams_role_permission.permission_id
         where ams_admin.id=#{id}
     </select>
 

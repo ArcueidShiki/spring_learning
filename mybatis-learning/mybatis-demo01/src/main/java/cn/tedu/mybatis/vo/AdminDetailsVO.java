@@ -7,6 +7,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Objects;
+
 // view object/ value object 用于封装查询的结果，在页面显示数据的类
 public class AdminDetailsVO implements Serializable {
     private Long id;

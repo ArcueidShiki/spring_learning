@@ -12,7 +12,7 @@
         type : 设置二级缓存的类型，不设置默认使用mybatis的缓存
     -->
     <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
-<!--    Emp getEmpById(@Param("eid") Integer id);-->
+    <!--    Emp getEmpById(@Param("eid") Integer id);-->
     <sql id="empColumns">id,name,manager,sal,dept_id</sql>
     <select id="getEmpById" resultType="Emp">
         select <include refid="empColumns"></include> from emp

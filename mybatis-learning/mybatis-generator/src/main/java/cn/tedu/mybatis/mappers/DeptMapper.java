@@ -2,7 +2,9 @@ package cn.tedu.mybatis.mappers;
 
 import cn.tedu.mybatis.pojo.Dept;
 import cn.tedu.mybatis.pojo.DeptExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface DeptMapper {

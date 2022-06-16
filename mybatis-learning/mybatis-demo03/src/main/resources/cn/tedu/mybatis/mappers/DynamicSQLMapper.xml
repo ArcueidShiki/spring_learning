@@ -4,14 +4,14 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
 <mapper namespace="cn.tedu.mybatis.mappers.DynamicSQLMapper">
-<!--    List<Emp> getEmpByConditionOne(Emp emp);-->
+    <!--    List<Emp> getEmpByConditionOne(Emp emp);-->
     <select id="getEmpByConditionOne" resultType="Emp">
         select * from emp where 1=1
         <if test="name != null and name != '' ">
             and name = #{name}
         </if>
         <if test="job != null and job !=''">
-           and job = #{job}
+            and job = #{job}
         </if>
     </select>
 
@@ -19,12 +19,12 @@
     <select id="getEmpByConditionTwo" resultType="Emp">
         select * from emp
         <where>
-          <!--where 标签可以把 前面的and or 去掉，后面的and or 不行-->
+            <!--where 标签可以把 前面的and or 去掉，后面的and or 不行-->
             <if test="name != null and name != '' ">
-                 name = #{name}
+                name = #{name}
             </if>
             <if test="job != null and job !=''">
-                 job = #{job}
+                job = #{job}
             </if>
         </where>
 
@@ -32,13 +32,13 @@
     <!--where 标签可以把 前面的and or 去掉，后面的and or 不行-->
     <select id="getEmpByConditionTrim" resultType="Emp">
         select * from emp
-        <trim prefix="where"  suffixOverrides="and|or"></trim>
-            <if test="job != null and job !=''">
-                job = #{job} or
-            </if>
+        <trim prefix="where" suffixOverrides="and|or"></trim>
+        <if test="job != null and job !=''">
+            job = #{job} or
+        </if>
 
     </select>
-<!--    List<Emp> getEmpByChoose(Emp emp);-->
+    <!--    List<Emp> getEmpByChoose(Emp emp);-->
     <sql id="empColumns">id,name,job,sal</sql>
     <select id="getEmpByChoose" resultType="Emp">
         select <include refid="empColumns"></include> from emp
@@ -57,7 +57,7 @@
         </where>
     </select>
 
-<!--    int deleteMoreByArray(Integer[] eids);-->
+    <!--    int deleteMoreByArray(Integer[] eids);-->
     <delete id="deleteMoreByArray">
         delete from emp where id in
         <foreach collection="eids" item="id" separator="," open="(" close=")">
@@ -65,8 +65,8 @@
         </foreach>
     </delete>
 
-<!--    int insertMoreByList(List<Emp> emps);-->
-    <insert id="insertMoreByList" >
+    <!--    int insertMoreByList(List<Emp> emps);-->
+    <insert id="insertMoreByList">
         insert into emp(id,name,job) values
         <foreach collection="emps" item="emp" separator=",">
             (null,#{emp.name},#{emp.job})

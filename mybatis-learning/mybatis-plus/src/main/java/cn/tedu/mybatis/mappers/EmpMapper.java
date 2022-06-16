@@ -2,10 +2,12 @@ package cn.tedu.mybatis.mappers;
 
 import cn.tedu.mybatis.pojo.Emp;
 import cn.tedu.mybatis.pojo.EmpExample;
+
 import java.util.List;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Param;
+
 // 继承 BaseMapper 整合 mybatis plus
 public interface EmpMapper extends BaseMapper<Emp> {
     /**

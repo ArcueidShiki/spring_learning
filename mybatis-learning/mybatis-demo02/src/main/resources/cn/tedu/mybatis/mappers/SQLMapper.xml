@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.EmpMapper-->
 <mapper namespace="cn.tedu.mybatis.mappers.SQLMapper">
-<!--    List<User> getUserByLike(@Param("username") String username);-->
+    <!--    List<User> getUserByLike(@Param("username") String username);-->
     <select id="getUserByLike" resultType="user">
         <!--select * from user where name like '%${username}%'-->
         <!--select * from user where name like concat('%',#{username},'%')-->
         select * from user where name like "%"#{username}"%"
     </select>
-    
+
     <!--int deleteMore(@Param("ids") String ids);-->
     <delete id="deleteMore">
         delete from user where id in (${ids})

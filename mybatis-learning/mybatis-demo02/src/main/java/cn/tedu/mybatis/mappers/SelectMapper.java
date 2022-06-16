@@ -24,11 +24,12 @@ public interface SelectMapper {
      * 根据id 查询用户信息为一个map集合
      * map集合响应到浏览器 是一个json对象
      */
-    Map<String,Object> getUserByIdToMap(@Param("id") Integer id);
+    Map<String, Object> getUserByIdToMap(@Param("id") Integer id);
 
     /**
      * 查询所有用户信息转换为map集合
      */
-    @MapKey("id")//设置当前集合的键
-    Map<String,Object> getAllUserToMap();
+    @MapKey("id")
+//设置当前集合的键
+    Map<String, Object> getAllUserToMap();
 }

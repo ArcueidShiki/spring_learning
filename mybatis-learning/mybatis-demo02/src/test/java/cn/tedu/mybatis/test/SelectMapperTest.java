@@ -12,28 +12,29 @@ public class SelectMapperTest {
      */
 
     @Test
-    public void testGetUserById(){
+    public void testGetUserById() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
         System.out.println(mapper.getUserById(3));
     }
 
     @Test
-    public void testGetCount(){
+    public void testGetCount() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
         System.out.println(mapper.getCount());
     }
 
     @Test
-    public void testGetUserByIdToMap(){
+    public void testGetUserByIdToMap() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
         System.out.println(mapper.getUserByIdToMap(32));
     }
+
     // TooManyResultsException:Expected one result (or null) to be returned by selectOne(), but found: 21
     @Test
-    public void testGetAllUserToMap(){
+    public void testGetAllUserToMap() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         SelectMapper mapper = sqlSession.getMapper(SelectMapper.class);
         System.out.println(mapper.getAllUserToMap());

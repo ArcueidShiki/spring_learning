@@ -4,13 +4,13 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace 写 接口全类名 例如:cn.tedu.mybatis.mappers.UserMapper-->
 <mapper namespace="cn.tedu.mybatis.mappers.EmpMapper">
-<!--    List<Emp> getAllEmp();-->
+    <!--    List<Emp> getAllEmp();-->
     <select id="getAllEmp2222222不会执行" resultType="Emp">
         select * from emp;
     </select>
     <!--自定义映射关系-->
     <resultMap id="empResultMap" type="Emp">
-<!--        <id property="id" column="id"></id> association:多对一 collection 一对多-->
+        <!--        <id property="id" column="id"></id> association:多对一 collection 一对多-->
         <result property="deptId" column="dept_id"></result>
     </resultMap>
 
@@ -18,7 +18,7 @@
         select * from emp;
     </select>
 
-<!--    Emp getEmpAndDept();-->
+    <!--    Emp getEmpAndDept();-->
 
     <resultMap id="EmpAndDeptResultMapOne" type="Emp">
         <id property="id" column="id"></id>
@@ -31,8 +31,8 @@
     <select id="getEmpAndDept" resultMap="EmpAndDeptResultMapOne">
         select * from emp left join dept on emp.dept_id = dept.id where emp.id = #{eid}
     </select>
-<!--    Emp getEmpAndDeptByStepOne(Integer eid);-->
-    
+    <!--    Emp getEmpAndDeptByStepOne(Integer eid);-->
+
     <resultMap id="empAndDeptByStepResultMap" type="Emp">
         <id property="id" column="id"></id>
 
@@ -47,7 +47,7 @@
         >
         </association>
     </resultMap>
-    
+
     <select id="getEmpAndDeptByStepOne" resultMap="empAndDeptByStepResultMap">
         select * from emp where id = #{eid}
     </select>

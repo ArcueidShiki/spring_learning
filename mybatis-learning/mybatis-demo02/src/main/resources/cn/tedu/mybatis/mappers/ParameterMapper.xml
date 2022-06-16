@@ -25,14 +25,14 @@
     </select>
 
     <!--List<User> getAllUser();-->
-    <select id="getAllUser" resultType="User"> /*因为设置了别名*/
+    <select id="getAllUser" resultType="User">/*因为设置了别名*/
         select * from user;
     </select>
 
-<!--    User GetUserByUsername(String username); -->
+    <!--    User GetUserByUsername(String username); -->
     <select id="GetUserByUsername" resultType="User">
-<!--占位符中的名字并不会影响结果 #{aaa}一样也可以-->
-<!--占位符中的名字并不会影响结果 '${aaa}'-->
+        <!--占位符中的名字并不会影响结果 #{aaa}一样也可以-->
+        <!--占位符中的名字并不会影响结果 '${aaa}'-->
         select * from user where name = '${aaa}'
     </select>
 
@@ -41,18 +41,18 @@
         select * from user where name = '${param1}' and password='${arg1}'
     </select>
 
-<!--    User checkLoginByMap(Map<String,Object> map);-->
-    <select id="checkLoginByMap"  resultType="User">
+    <!--    User checkLoginByMap(Map<String,Object> map);-->
+    <select id="checkLoginByMap" resultType="User">
         select * from user where name = #{username} and password = #{password}
     </select>
 
-<!--    int insertUser(User user);-->
+    <!--    int insertUser(User user);-->
     <insert id="insertUser">
         insert into user values(null,#{name},#{password},#{nickname})
     </insert>
 
-<!--    User checkLoginByParam(@Param("username") String username,-->
-<!--    @Param("password") String password);-->
+    <!--    User checkLoginByParam(@Param("username") String username,-->
+    <!--    @Param("password") String password);-->
     <select id="checkLoginByParam" resultType="User">
         select * from user where name = #{username} and password= #{password}
     </select>

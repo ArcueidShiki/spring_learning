@@ -2,8 +2,26 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/jedis-learning/jedis-learning.iml" filepath="$PROJECT_DIR$/jedis-learning/jedis-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-demo01/mybatis-demo01.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-demo01/mybatis-demo01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-demo02/mybatis-demo02.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-demo02/mybatis-demo02.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-demo03/mybatis-demo03.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-demo03/mybatis-demo03.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-generator/mybatis-generator.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-generator/mybatis-generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-learning.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis-plus/mybatis-plus.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis-plus/mybatis-plus.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis_plus_boot/mybatis_plus_boot.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis_plus_boot/mybatis_plus_boot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis_plus_generator/mybatis_plus_generator.iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis_plus_generator/mybatis_plus_generator.iml" />
+      <module fileurl="file://$PROJECT_DIR$/mybatis-learning/mybatis_plus_generator (1).iml" filepath="$PROJECT_DIR$/mybatis-learning/mybatis_plus_generator (1).iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-data-redis-demo/spring-data-redis-demo.iml" filepath="$PROJECT_DIR$/spring-data-redis-demo/spring-data-redis-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" filepath="$PROJECT_DIR$/spring-mybatis/spring-mybatis.iml" />
       <module fileurl="file://$PROJECT_DIR$/springLearning.iml" filepath="$PROJECT_DIR$/springLearning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_aop/spring_aop.iml" filepath="$PROJECT_DIR$/spring_aop/spring_aop.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_boot_quickstart/spring_boot_quickstart.iml" filepath="$PROJECT_DIR$/spring_boot_quickstart/spring_boot_quickstart.iml" />
       <module fileurl="file://$PROJECT_DIR$/spring_ioc_anno/spring_ioc_anno.iml" filepath="$PROJECT_DIR$/spring_ioc_anno/spring_ioc_anno.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_parent/spring_parent.iml" filepath="$PROJECT_DIR$/spring_parent/spring_parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ssm/spring_ssm.iml" filepath="$PROJECT_DIR$/spring_ssm/spring_ssm.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_transaction/spring_transaction.iml" filepath="$PROJECT_DIR$/spring_transaction/spring_transaction.iml" />
+      <module fileurl="file://$PROJECT_DIR$/springmvc/springmvc.iml" filepath="$PROJECT_DIR$/springmvc/springmvc.iml" />
     </modules>
   </component>
 </project>

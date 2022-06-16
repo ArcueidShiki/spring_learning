@@ -6,10 +6,12 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+
 @Mapper
 public interface AdminMapper {
 
     int insert(Admin admin);
+
     //方法参数只有一个时，不用添加@param，因为mybatis可以直接找到这个参数
     int deleteById(Long id);
 
@@ -23,9 +25,9 @@ public interface AdminMapper {
 
     List<Admin> list();
 
-    int deleteByIds(Long...ids);
+    int deleteByIds(Long... ids);
 
-//    int deleteByIds(Long[] ids);
+    //    int deleteByIds(Long[] ids);
     int deleteByIds(List<Long> ids);
 
     int deleteByIds(long[] longs);

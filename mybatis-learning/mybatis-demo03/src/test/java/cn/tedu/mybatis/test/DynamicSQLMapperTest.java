@@ -11,7 +11,7 @@ import java.util.List;
 
 public class DynamicSQLMapperTest {
     @Test
-    public void testGetEmpByCondition(){
+    public void testGetEmpByCondition() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
         Emp emp = new Emp();
@@ -24,19 +24,19 @@ public class DynamicSQLMapperTest {
     }
 
     @Test
-    public void testDeleteMoreByArray(){
+    public void testDeleteMoreByArray() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
-        mapper.deleteMoreByArray(new Integer[]{41,42,43});
+        mapper.deleteMoreByArray(new Integer[]{41, 42, 43});
     }
 
     @Test
-    public void testInsertMoreByList(){
+    public void testInsertMoreByList() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DynamicSQLMapper mapper = sqlSession.getMapper(DynamicSQLMapper.class);
         List<Emp> list = new ArrayList<>();
-        list.add(new Emp(null,"爱尔奎特","吸血鬼"));
-        list.add(new Emp(null,"希耶尔","代行者"));
+        list.add(new Emp(null, "爱尔奎特", "吸血鬼"));
+        list.add(new Emp(null, "希耶尔", "代行者"));
         mapper.insertMoreByList(list);
     }
 }

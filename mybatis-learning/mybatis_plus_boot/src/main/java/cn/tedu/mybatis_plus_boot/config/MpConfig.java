@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class MpConfig {
     @Bean
-    public MybatisPlusInterceptor mpInterceptor(){
+    public MybatisPlusInterceptor mpInterceptor() {
         //1.定义MP拦截器
         MybatisPlusInterceptor mpInterceptor = new MybatisPlusInterceptor();
         //2.添加具体的拦截器- 分页拦截器

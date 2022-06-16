@@ -10,7 +10,7 @@ import org.omg.CORBA.MARSHAL;
 public class ResultMapTest {
 
     @Test
-    public void testGetAllEmp(){
+    public void testGetAllEmp() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         mapper.getAllEmp().forEach(System.out::println);
@@ -18,7 +18,7 @@ public class ResultMapTest {
     }
 
     @Test
-    public void testGetEmpAndDept(){
+    public void testGetEmpAndDept() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         System.out.println(mapper.getEmpAndDept(2));
@@ -26,7 +26,7 @@ public class ResultMapTest {
     }
 
     @Test
-    public void testGetEmpAndDeptByStep(){
+    public void testGetEmpAndDeptByStep() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         EmpMapper mapper = sqlSession.getMapper(EmpMapper.class);
         System.out.println(mapper.getEmpAndDeptByStepOne(2));
@@ -38,8 +38,9 @@ public class ResultMapTest {
         DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
         System.out.println(mapper.getDeptAndEmp(1));
     }
+
     @Test
-    public void testGetDeptAndEmpByStepOne(){
+    public void testGetDeptAndEmpByStepOne() {
         SqlSession sqlSession = SqlSessionUtils.getSqlSession();
         DeptMapper mapper = sqlSession.getMapper(DeptMapper.class);
         System.out.println(mapper.getDeptAndEmpByStepOne(1));

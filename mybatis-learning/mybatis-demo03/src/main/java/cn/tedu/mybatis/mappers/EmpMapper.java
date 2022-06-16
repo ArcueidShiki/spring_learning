@@ -16,7 +16,8 @@ public interface EmpMapper {
      */
     Emp getEmpAndDept(@Param("eid") Integer eid);
 
-    /**\
+    /**
+     * \
      * 通过分布查询员工以及员工所对应的部门
      * 第一步
      */

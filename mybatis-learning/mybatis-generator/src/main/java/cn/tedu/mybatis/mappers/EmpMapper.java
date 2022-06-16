@@ -2,7 +2,9 @@ package cn.tedu.mybatis.mappers;
 
 import cn.tedu.mybatis.pojo.Emp;
 import cn.tedu.mybatis.pojo.EmpExample;
+
 import java.util.List;
+
 import org.apache.ibatis.annotations.Param;
 
 public interface EmpMapper {

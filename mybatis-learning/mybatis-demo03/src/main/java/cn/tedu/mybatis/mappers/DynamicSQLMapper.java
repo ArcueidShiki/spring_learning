@@ -11,8 +11,11 @@ public interface DynamicSQLMapper {
      */
 
     List<Emp> getEmpByConditionOne(Emp emp);
+
     List<Emp> getEmpByConditionTwo(Emp emp);
+
     List<Emp> getEmpByConditionTrim(Emp emp);
+
     List<Emp> getEmpByChoose(Emp emp);
 
     /**

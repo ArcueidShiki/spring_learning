@@ -13,7 +13,7 @@ import java.io.InputStream;
 
 public class MyBatisPlusTest {
     @Test
-    public void testSelectByExample(){
+    public void testSelectByExample() {
         try {
             InputStream is = Resources.getResourceAsStream("mybatis-config.xml");
             SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(is);
@@ -26,7 +26,7 @@ public class MyBatisPlusTest {
     }
 
     @Test
-    public void testMyBatisPlus(){
+    public void testMyBatisPlus() {
         InputStream is = null;
         try {
             is = Resources.getResourceAsStream("mybatis-config.xml");
@@ -39,6 +39,6 @@ public class MyBatisPlusTest {
         mapper.selectByExample(null).forEach(System.out::println);
         /*log以e为底，换地公式*/
 
-        System.out.println("log2（8) : "+Math.floor(Math.log(-8) / Math.log(2)));
+        System.out.println("log2（8) : " + Math.floor(Math.log(-8) / Math.log(2)));
     }
 }
